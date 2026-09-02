@@ -1,0 +1,231 @@
+:root {
+    --primary: #e91e63;
+    --primary-light: #f8bbd0;
+    --secondary: #9c27b0;
+    --secondary-light: #e1bee7;
+    --bg: #fdf2f5;
+    --card-bg: #ffffff;
+    --text: #333333;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+h1, h2 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #d81b60;
+}
+
+/* Metrics */
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.metric-box {
+    background-color: var(--bg);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.metric-box.ovulation {
+    background-color: #f3e5f5;
+}
+
+.metric-box.ovulation .value {
+    color: var(--secondary);
+}
+
+.metric-box .value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 4px;
+}
+
+.metric-sub {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* Calendar Styling */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.calendar-nav {
+    background: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day-header {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #777;
+    padding: 5px 0;
+}
+
+.day-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+.day-cell.empty {
+    visibility: hidden;
+}
+
+.day-cell.today {
+    border: 2px solid var(--text);
+    font-weight: bold;
+}
+
+.day-cell.period {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.day-cell.predicted-period {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.day-cell.predicted-ovulation {
+    background-color: var(--secondary-light);
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* History Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+th {
+    color: #666;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #ff5252;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}

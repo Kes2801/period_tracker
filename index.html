@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Log Entry Form -->
+    <div class="card">
+        <h1>Log Period</h1>
+        <form id="tracker-form">
+            <div class="form-group">
+                <label for="start-date">First Day of Period:</label>
+                <input type="date" id="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="period-length">Period Duration (Days):</label>
+                <input type="number" id="period-length" min="1" max="60" placeholder="e.g. 5" required>
+            </div>
+            <div class="form-group">
+                <label for="cycle-length">Cycle Length to Next Period (Days):</label>
+                <input type="number" id="cycle-length" min="1" max="180" placeholder="e.g. 28" required>
+            </div>
+            <button type="submit">Save Entry</button>
+        </form>
+    </div>
+
+    <!-- Predictions & Averages Summary -->
+    <div class="card">
+        <h2>Predictions & Averages</h2>
+        <div class="metrics">
+            <div class="metric-box">
+                <div>Next Period</div>
+                <div class="value" id="pred-next">-</div>
+            </div>
+            <div class="metric-box ovulation">
+                <div>Approx. Ovulation</div>
+                <div class="value" id="pred-ovulation">-</div>
+            </div>
+            <div class="metric-box">
+                <div>Avg Cycle Length</div>
+                <div class="value" id="avg-cycle">-</div>
+                <div class="metric-sub" id="avg-cycle-sub">based on 0 entries</div>
+            </div>
+            <div class="metric-box">
+                <div>Avg Period Duration</div>
+                <div class="value" id="avg-period">-</div>
+                <div class="metric-sub" id="avg-period-sub">based on 0 entries</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Monthly Calendar View -->
+    <div class="card">
+        <div class="calendar-header">
+            <button class="calendar-nav" id="prev-month">&lt;</button>
+            <h3 id="calendar-title">Month Year</h3>
+            <button class="calendar-nav" id="next-month">&gt;</button>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background-color: var(--primary);"></div> Logged Period
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background-color: var(--primary-light);"></div> Predicted Period
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background-color: var(--secondary-light);"></div> Predicted Ovulation
+            </div>
+        </div>
+    </div>
+
+    <!-- History Table -->
+    <div class="card">
+        <h2>History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>Duration</th>
+                    <th>Cycle</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
